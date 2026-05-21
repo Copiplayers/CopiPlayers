@@ -35,21 +35,6 @@ La app estará en `[localhost](http://localhost:4200)`.
 | GET    | `/api/jugadores/{id}`         | Detalle de un jugador              |
 | POST   | `/api/jugadores`              | Crear un jugador (enviar equipoId) |
 ---
-## Ejemplo JSON — Crear jugador
-```json
-{
-  "nombre": "Luka Dončić",
-  "posicion": "Base",
-  "dorsal": 77,
-  "altura": 2.01,
-  "equipoId": 1
-}
-```
----
-## Problemas encontrados durante el desarrollo
-_(Documentar aquí los problemas que vayáis encontrando)_
-- ...
----
 ## Tecnologías
 - Angular 21 (Standalone, Signals, Reactive Forms)
 - Spring Boot 3.3 + Spring Data JPA
