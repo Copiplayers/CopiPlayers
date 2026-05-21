@@ -1,0 +1,14 @@
+<h2>Equipos de Baloncesto</h2>
+<div class="card-grid">
+  @for (equipo of equipos(); track equipo.id) {
+    <div class="card">
+      <h3>{{ equipo.nombre }}</h3>
+      <p><strong>Ciudad:</strong> {{ equipo.ciudad }}</p>
+      <p><strong>Conferencia:</strong> {{ equipo.conferencia }}</p>
+      <p><strong>Fundado:</strong> {{ equipo.anioFundacion }}</p>
+      <a [routerLink]="['/equipos', equipo.id]" class="btn">Ver jugadores</a>
+    </div>
+  } @empty {
+    <p>No hay equipos disponibles.</p>
+  }
+</div>

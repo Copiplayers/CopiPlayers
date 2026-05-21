@@ -1,0 +1,36 @@
+<a routerLink="/equipos" class="btn btn-back">← Volver a equipos</a>
+@if (equipo()) {
+  <div class="detail-header">
+    <h2>{{ equipo()!.nombre }}</h2>
+    <p><strong>Ciudad:</strong> {{ equipo()!.ciudad }}</p>
+    <p><strong>Conferencia:</strong> {{ equipo()!.conferencia }}</p>
+    <p><strong>Año de fundación:</strong> {{ equipo()!.anioFundacion }}</p>
+  </div>
+  <h3>Jugadores del equipo</h3>
+  @if (jugadores().length > 0) {
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Posición</th>
+          <th>Dorsal</th>
+          <th>Altura (m)</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (jugador of jugadores(); track jugador.id) {
+          <tr>
+            <td>{{ jugador.nombre }}</td>
+            <td>{{ jugador.posicion }}</td>
+            <td>{{ jugador.dorsal }}</td>
+            <td>{{ jugador.altura }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>Este equipo aún no tiene jugadores registrados.</p>
+  }
+} @else {
+  <p>Cargando equipo...</p>
+}
