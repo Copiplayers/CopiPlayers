@@ -1,9 +1,11 @@
-package com.fpdual.baloncesto.model;
+package com.copiplayers.copiplayers.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 @Entity
+@Table(name = "jugador")
 public class Jugador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,7 @@ public class Jugador {
     private Equipo equipo;
     // Campo auxiliar para recibir el ID del equipo en el JSON
     @Transient
+    @JsonProperty("equipoId")
     private Long equipoId;
     // Constructores
     public Jugador() {}

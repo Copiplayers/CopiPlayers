@@ -1,14 +1,15 @@
-package com.fpdual.baloncesto.controller;
-import com.fpdual.baloncesto.model.Equipo;
-import com.fpdual.baloncesto.model.Jugador;
-import com.fpdual.baloncesto.service.EquipoService;
-import com.fpdual.baloncesto.service.JugadorService;
+package com.copiplayers.copiplayers.controller;
+import com.copiplayers.copiplayers.model.Equipo;
+import com.copiplayers.copiplayers.model.Jugador;
+import com.copiplayers.copiplayers.service.EquipoService;
+import com.copiplayers.copiplayers.service.JugadorService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/api/equipos")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EquipoController {
     private final EquipoService equipoService;
     private final JugadorService jugadorService;

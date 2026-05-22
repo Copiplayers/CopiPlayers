@@ -1,6 +1,6 @@
-package com.fpdual.baloncesto.service;
-import com.fpdual.baloncesto.model.Jugador;
-import com.fpdual.baloncesto.repository.JugadorRepository;
+package com.copiplayers.copiplayers.service;
+import com.copiplayers.copiplayers.model.Jugador;
+import com.copiplayers.copiplayers.repository.JugadorRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
