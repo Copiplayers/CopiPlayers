@@ -1,26 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
-/* === Reset y base === */
+/* ══════════════════════════════════════
+   styles.css — Global (solo lo que cambia)
+   ══════════════════════════════════════ */
+
+/* Reset y base — SIN CAMBIOS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
+  background-color: #0f172a;
+  margin: 0;
+  font-family: "Inter", sans-serif;
 }
-/* === Navbar === */
+
+/* Navbar — SIN CAMBIOS */
 .navbar {
-  background-color: #1a1a2e;
+  background-color: #08081f;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .nav-brand {
-  color: #e94560;
+  color: #ffffff;
   font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
@@ -35,13 +38,15 @@ body {
 .nav-links a:hover {
   color: #e94560;
 }
-/* === Container === */
+
+/* Container — SIN CAMBIOS */
 .container {
   max-width: 960px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
-/* === Cards grid === */
+
+/* Cards — SIN CAMBIOS */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -62,7 +67,8 @@ body {
   color: #1a1a2e;
   margin-bottom: 0.5rem;
 }
-/* === Buttons === */
+
+/* ─── Buttons base ─── */
 .btn {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -86,17 +92,12 @@ body {
 .btn-back:hover {
   background-color: #565e64;
 }
-.btn-primary {
-  background-color: #0f3460;
-}
-.btn-primary:hover {
-  background-color: #0b2545;
-}
 .btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-/* === Detail header === */
+
+/* Detail header — SIN CAMBIOS */
 .detail-header {
   background: #fff;
   padding: 1.5rem;
@@ -104,88 +105,70 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 1.5rem;
 }
-/* === Table === */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.data-table thead {
-  background-color: #1a1a2e;
-  color: #fff;
-}
-.data-table th,
-.data-table td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-}
-.data-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-.data-table tbody tr:hover {
-  background-color: #eef;
-}
-/* === Form === */
-.form {
+
+/* ═══════════════════════════════════════════════
+   FORMULARIOS "CLAROS" — ahora con scope
+   Solo aplican dentro de .light-form
+   ═══════════════════════════════════════════════ */
+.light-form {
   background: #fff;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   max-width: 500px;
 }
-.form-group {
+.light-form .form-group {
   margin-bottom: 1.2rem;
 }
-.form-group label {
+.light-form .form-group label {
   display: block;
   margin-bottom: 0.3rem;
   font-weight: 600;
   color: #1a1a2e;
 }
-.form-group input,
-.form-group select {
+.light-form .form-group input,
+.light-form .form-group select {
   width: 100%;
   padding: 0.6rem 0.8rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
 }
-.form-group input:focus,
-.form-group select:focus {
+.light-form .form-group input:focus,
+.light-form .form-group select:focus {
   outline: none;
   border-color: #0f3460;
   box-shadow: 0 0 0 2px rgba(15,52,96,0.2);
 }
-.form-error {
+.light-form .form-error {
   color: #e94560;
   font-size: 0.8rem;
   margin-top: 0.2rem;
   display: block;
 }
-/* === Alerts === */
-.alert {
-  padding: 0.8rem 1rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  font-weight: 500;
+.light-form .btn-primary {
+  background-color: #0f3460;
 }
-.alert-success {
+.light-form .btn-primary:hover {
+  background-color: #0b2545;
+}
+
+/* Alertas claras — con scope */
+.light-form .alert-success {
   background-color: #d4edda;
   color: #155724;
   border: 1px solid #c3e6cb;
 }
-.alert-error {
+.light-form .alert-error {
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
-/* === Headings === */
+
+/* ─── Headings globales ─── */
 h2 {
-  color: #1a1a2e;
   margin-bottom: 1rem;
+  /* QUITADO: color: #1a1a2e — cada componente define su color */
 }
 h3 {
   margin-bottom: 0.8rem;

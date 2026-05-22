@@ -17,4 +17,7 @@ export class JugadorService {
   createJugador(jugador: Jugador): Observable<Jugador> {
     return this.http.post<Jugador>(this.apiUrl, jugador);
   }
+  eliminarJugador(id: number): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8080/api/jugadores/${id}`);
+  }
 }

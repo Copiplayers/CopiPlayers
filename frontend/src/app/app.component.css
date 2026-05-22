@@ -1,0 +1,90 @@
+/* ===================================================
+   BARRA DE NAVEGACIÓN SUPERIOR (ESTILO PREMIUM GLASSMORPHISM)
+   =================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+
+  /* Efecto translúcido esmerilado que deja ver el fondo con desenfoque */
+  background: rgba(17, 24, 39, 0.75) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  /* Contorno inferior fino y sombra suave de profundidad */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Se queda fijo arriba al hacer scroll sin mezclarse */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ===================================================
+   LOGOTIPO / MARCA (🏀 Baloncesto App)
+   =================================================== */
+.nav-brand {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800; /* Letras bien corpóreas e imponentes */
+  letter-spacing: -0.03em;
+  color: #ffffff !important; /* Blanco puro de alta visibilidad */
+  text-decoration: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s ease;
+}
+
+.nav-brand:hover {
+  opacity: 0.9;
+}
+
+/* ===================================================
+   CONTENEDOR DE ENLACES Y TEXTOS
+   =================================================== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Separación simétrica */
+}
+
+/* Estilo base para cada enlace de opción */
+.nav-links a {
+  color: #94a3b8 !important; /* Gris suave corporativo por defecto */
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+/* Ya que usas la etiqueta <b> en el HTML, garantizamos el grosor exacto aquí */
+.nav-links a b {
+  font-weight: 600;
+}
+
+/* Efecto hover interactivo */
+.nav-links a:hover {
+  color: #ffffff !important; /* Pasa a blanco brillante */
+  background-color: rgba(255, 255, 255, 0.05); /* Recuadro sutil de selección */
+}
+
+/* ===================================================
+   Opcional: Si quieres que Angular resalte la página activa
+   =================================================== */
+.nav-links a.active {
+  color: #38bdf8 !important; /* Color cyan de tus botones */
+  background-color: rgba(56, 189, 248, 0.1) !important; /* Destello de fondo */
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* ===================================================
+   CONTENEDOR DE LAS VISTAS (<main class="container">)
+   =================================================== */
+.container {
+  width: 100%;
+  box-sizing: border-box;
+}

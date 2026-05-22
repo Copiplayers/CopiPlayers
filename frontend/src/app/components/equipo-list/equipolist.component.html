@@ -1,14 +1,38 @@
-<h2>Equipos de Baloncesto</h2>
+<div class="header-inline">
+  <h2>Todos los Equipos</h2>
+  <a routerLink="/equipos/nuevo" class="btn-add-player">
+    ➕ Nuevo Equipo
+  </a>
+</div>
+<div class="search-container">
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Buscar por nombre..."
+      [value]="searchTerm()"
+      (input)="updateSearchTerm($event)"
+      class="search-input"
+    />
+  </div>
+</div>
 <div class="card-grid">
-  @for (equipo of equipos(); track equipo.id) {
+  @for (equipo of filteredEquipos(); track equipo.id) {
     <div class="card">
-      <h3>{{ equipo.nombre }}</h3>
-      <p><strong>Ciudad:</strong> {{ equipo.ciudad }}</p>
-      <p><strong>Conferencia:</strong> {{ equipo.conferencia }}</p>
-      <p><strong>Fundado:</strong> {{ equipo.anioFundacion }}</p>
-      <a [routerLink]="['/equipos', equipo.id]" class="btn">Ver jugadores</a>
-    </div>
+  <h3>{{ equipo.nombre }}</h3>
+  <p><strong>Ciudad:</strong> {{ equipo.ciudad }}</p>
+  <p><strong>Conferencia:</strong> {{ equipo.conferencia }}</p>
+  <p><strong>Fundado:</strong> {{ equipo.anioFundacion }}</p>
+
+  <div class="card-actions">
+    <a [routerLink]="['/equipos', equipo.id]" class="btn">Ver jugadores</a>
+    <button (click)="delete(equipo.id!)" class="btn-delete">
+      🗑️
+    </button>
+  </div>
+</div>
   } @empty {
     <p>No hay equipos disponibles.</p>
   }
 </div>
+

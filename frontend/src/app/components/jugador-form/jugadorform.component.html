@@ -1,63 +1,71 @@
-<h2>Nuevo Jugador</h2>
-@if (mensaje()) {
-  <div [class]="error() ? 'alert alert-error' : 'alert alert-success'">
-    {{ mensaje() }}
-  </div>
-}
-<form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()" class="form">
-  <!-- Nombre -->
-  <div class="form-group">
-    <label for="nombre">Nombre</label>
-    <input id="nombre" type="text" formControlName="nombre" placeholder="Ej: Luka Dončić">
-    @if (jugadorForm.get('nombre')!.touched && jugadorForm.get('nombre')!.invalid) {
-      <small class="form-error">El nombre es obligatorio (mín. 2 caracteres).</small>
+<div class="form-page-wrapper">
+
+  <div class="form-container">
+    <h2>Nuevo Jugador</h2>
+
+    @if (mensaje()) {
+      <div [class]="error() ? 'alert alert-error' : 'alert alert-success'">
+        {{ mensaje() }}
+      </div>
     }
+
+    <form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" formControlName="nombre" placeholder="Ej: Luka Dončić" class="form-control">
+        @if (jugadorForm.get('nombre')!.touched && jugadorForm.get('nombre')!.invalid) {
+          <small class="form-error">El nombre es obligatorio (mín. 2 caracteres).</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="posicion">Posición</label>
+        <select id="posicion" formControlName="posicion" class="form-control">
+          <option value="" disabled>Selecciona posición</option>
+          <option value="Base">Base</option>
+          <option value="Escolta">Escolta</option>
+          <option value="Alero">Alero</option>
+          <option value="Ala-Pívot">Ala-Pívot</option>
+          <option value="Pívot">Pívot</option>
+        </select>
+        @if (jugadorForm.get('posicion')!.touched && jugadorForm.get('posicion')!.invalid) {
+          <small class="form-error">La posición es obligatoria.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="dorsal">Dorsal</label>
+        <input id="dorsal" type="number" formControlName="dorsal" placeholder="0-99" class="form-control">
+        @if (jugadorForm.get('dorsal')!.touched && jugadorForm.get('dorsal')!.invalid) {
+          <small class="form-error">Dorsal obligatorio (0-99).</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="altura">Altura (m)</label>
+        <input id="altura" type="number" step="0.01" formControlName="altura" placeholder="Ej: 2.01" class="form-control">
+        @if (jugadorForm.get('altura')!.touched && jugadorForm.get('altura')!.invalid) {
+          <small class="form-error">Altura obligatoria (entre 1.00 y 2.50).</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="equipoId">Equipo</label>
+        <select id="equipoId" formControlName="equipoId" class="form-control">
+          <option [ngValue]="null" disabled>Selecciona equipo</option>
+          @for (equipo of equipos(); track equipo.id) {
+            <option [ngValue]="equipo.id">{{ equipo.nombre }}</option>
+          }
+        </select>
+        @if (jugadorForm.get('equipoId')!.touched && jugadorForm.get('equipoId')!.invalid) {
+          <small class="form-error">Debes seleccionar un equipo.</small>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="jugadorForm.invalid">
+        Crear Jugador
+      </button>
+    </form>
   </div>
-  <!-- Posición -->
-  <div class="form-group">
-    <label for="posicion">Posición</label>
-    <select id="posicion" formControlName="posicion">
-      <option value="" disabled>Selecciona posición</option>
-      <option value="Base">Base</option>
-      <option value="Escolta">Escolta</option>
-      <option value="Alero">Alero</option>
-      <option value="Ala-Pívot">Ala-Pívot</option>
-      <option value="Pívot">Pívot</option>
-    </select>
-    @if (jugadorForm.get('posicion')!.touched && jugadorForm.get('posicion')!.invalid) {
-      <small class="form-error">La posición es obligatoria.</small>
-    }
-  </div>
-  <!-- Dorsal -->
-  <div class="form-group">
-    <label for="dorsal">Dorsal</label>
-    <input id="dorsal" type="number" formControlName="dorsal" placeholder="0-99">
-    @if (jugadorForm.get('dorsal')!.touched && jugadorForm.get('dorsal')!.invalid) {
-      <small class="form-error">Dorsal obligatorio (0-99).</small>
-    }
-  </div>
-  <!-- Altura -->
-  <div class="form-group">
-    <label for="altura">Altura (m)</label>
-    <input id="altura" type="number" step="0.01" formControlName="altura" placeholder="Ej: 2.01">
-    @if (jugadorForm.get('altura')!.touched && jugadorForm.get('altura')!.invalid) {
-      <small class="form-error">Altura obligatoria (entre 1.00 y 2.50).</small>
-    }
-  </div>
-  <!-- Equipo -->
-  <div class="form-group">
-    <label for="equipoId">Equipo</label>
-    <select id="equipoId" formControlName="equipoId">
-      <option [ngValue]="null" disabled>Selecciona equipo</option>
-      @for (equipo of equipos(); track equipo.id) {
-        <option [ngValue]="equipo.id">{{ equipo.nombre }}</option>
-      }
-    </select>
-    @if (jugadorForm.get('equipoId')!.touched && jugadorForm.get('equipoId')!.invalid) {
-      <small class="form-error">Debes seleccionar un equipo.</small>
-    }
-  </div>
-  <button type="submit" class="btn btn-primary" [disabled]="jugadorForm.invalid">
-    Crear Jugador
-  </button>
-</form>
+
+</div>

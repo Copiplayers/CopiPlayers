@@ -21,4 +21,7 @@ export class EquipoService {
   createEquipo(equipo: Equipo): Observable<Equipo> {
     return this.http.post<Equipo>(this.apiUrl, equipo);
   }
+  deleteEquipo(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

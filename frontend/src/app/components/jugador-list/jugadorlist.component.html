@@ -1,25 +1,50 @@
-<h2>Todos los Jugadores</h2>
-@if (jugadores().length > 0) {
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Posición</th>
-        <th>Dorsal</th>
-        <th>Altura (m)</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (jugador of jugadores(); track jugador.id) {
+<div class="table-page-wrapper">
+
+  <div class="header-inline">
+    <h2>Todos los Jugadores</h2>
+    <a routerLink="/jugadores/nuevo" class="btn-add-player">
+      ➕ Nuevo Jugador
+    </a>
+  </div>
+  <div class="search-container">
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Buscar por nombre o posición..."
+      [value]="searchTerm()"
+      (input)="updateSearchTerm($event)"
+      class="search-input"
+    />
+  </div>
+</div>
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
         <tr>
-          <td>{{ jugador.nombre }}</td>
-          <td>{{ jugador.posicion }}</td>
-          <td>{{ jugador.dorsal }}</td>
-          <td>{{ jugador.altura }}</td>
+          <th>Nombre</th>
+          <th>Posición</th>
+          <th>Dorsal</th>
+          <th>Altura (m)</th>
+          <th>Acciones</th>
         </tr>
-      }
-    </tbody>
-  </table>
-} @else {
-  <p>No hay jugadores registrados.</p>
-}
+      </thead>
+      <tbody>
+       @for (jugador of filteredJugadores(); track jugador.id) {
+          <tr>
+            <td>{{ jugador.nombre }}</td>
+            <td>{{ jugador.posicion }}</td>
+            <td>{{ jugador.dorsal }}</td>
+            <td>{{ jugador.altura }}</td>
+            <td>
+              <button (click)="eliminar(jugador.id, jugador.nombre)" class="btn btn-danger btn-sm">
+              Eliminar
+            </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -61,5 +61,16 @@ public class JugadorController {
         return ResponseEntity.ok(jugadorGuardado);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        // Verificamos si el jugador existe antes de intentar borrarlo
+        if (!jugadorService.findById(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        jugadorService.deleteById(id);
+        return ResponseEntity.noContent().build(); // Devuelve un estado 204 (Sin Contenido) que significa "Éxito"
+    }
+
     
 }

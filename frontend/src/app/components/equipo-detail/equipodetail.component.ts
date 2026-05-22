@@ -8,7 +8,8 @@ import { Jugador } from '../../model/jugador.model';
   selector: 'app-equipo-detail',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './equipodetail.component.html'
+  templateUrl: './equipodetail.component.html',
+  styleUrl: './equipodetail.component.css'
 })
 export class EquipoDetailComponent implements OnInit {
   // ✅ Signals

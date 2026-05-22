@@ -9,7 +9,8 @@ import { Equipo } from '../../model/equipo.model';
   selector: 'app-jugador-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './jugadorform.component.html'
+  templateUrl: './jugadorform.component.html',
+  styleUrl: './jugadorform.component.css'
 })
 export class JugadorFormComponent implements OnInit {
   jugadorForm!: FormGroup;

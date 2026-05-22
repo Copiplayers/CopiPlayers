@@ -42,4 +42,12 @@ public class EquipoController {
         }
         return ResponseEntity.ok(jugadorService.findByEquipoId(id));
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (equipoService.findById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        equipoService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
