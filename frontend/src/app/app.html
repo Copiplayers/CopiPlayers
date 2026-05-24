@@ -1,0 +1,37 @@
+<div class="app-shell">
+  <header class="topbar">
+    <a routerLink="/equipos" class="brand" aria-label="Ir al listado de equipos">
+      <span class="brand-mark">CP</span>
+      <span>
+        <strong>CopiPlayers</strong>
+        <small>Liga Endesa ACB</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegacion principal">
+      <a routerLink="/equipos" routerLinkActive="active">Equipos</a>
+      <a routerLink="/jugadores" routerLinkActive="active">Jugadores</a>
+      <a routerLink="/jugadores/nuevo" routerLinkActive="active">Nuevo jugador</a>
+    </nav>
+  </header>
+
+  <section class="page-hero" aria-label="Resumen de la aplicacion">
+    <div>
+      <p class="eyebrow">Liga Endesa</p>
+      <h1>Gestiona equipos y jugadores de la ACB desde un unico lugar</h1>
+      <p>
+        Consulta plantillas, revisa la informacion de cada club y registra nuevos
+        jugadores con un flujo mas directo y visual.
+      </p>
+    </div>
+
+    <div class="hero-actions" aria-label="Acciones rapidas">
+      <a routerLink="/equipos" class="btn btn-primary">Ver equipos</a>
+      <a routerLink="/jugadores/nuevo" class="btn btn-secondary">Crear jugador</a>
+    </div>
+  </section>
+
+  <main class="container" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
+</div>
