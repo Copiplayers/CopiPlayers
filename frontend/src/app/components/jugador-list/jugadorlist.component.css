@@ -1,0 +1,200 @@
+/* Contenedor principal que hereda el degradado de fondo corporativo */
+.table-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 90vh;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  /* Mismo degradado del formulario para unificar la app */
+  background: #0f172a !important;
+}
+
+/* Título de la sección nítido y blanco */
+.table-page-wrapper h2 {
+  text-align: left;
+  width: 100%;
+  max-width: 1000px; /* Alineado con el ancho de la tabla */
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #ffffff !important;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor responsivo que simula la tarjeta de cristal esmerilado */
+.table-container {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(17, 24, 39, 0.85) !important; /* Cristal oscuro */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden; /* Mantiene las esquinas redondeadas en la tabla */
+  box-sizing: border-box;
+}
+
+/* Estructura base de la Tabla */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+}
+
+/* Cabecera de la tabla (Encabezados) */
+.custom-table th {
+  background-color: rgba(3, 7, 18, 0.6) !important; /* Capa más oscura arriba */
+  color: #e2e8f0 !important; /* Gris blanquecino de alta legibilidad */
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Celdas de contenido (Filas de jugadores) */
+.custom-table td {
+  padding: 16px 24px;
+  color: #ffffff !important; /* Nombres y datos en blanco puro */
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador sutil */
+  transition: background-color 0.2s ease;
+}
+
+/* Efecto Hover: Resalta sutilmente la fila sobre la que pasas el ratón */
+.custom-table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Botón Eliminar: Cambiado a una estética formal menos chillona */
+.btn-delete {
+  background-color: transparent !important;
+  color: #f87171 !important; /* Rojo pastel refinado */
+  border: 1px solid rgba(248, 113, 113, 0.4) !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #f87171 !important; /* Se rellena al pasar por encima */
+  color: #030712 !important; /* Texto oscuro para contraste */
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
+}
+
+/* ===================================================
+   CONTENEDOR DE LA BARRA DE BÚSQUEDA
+   =================================================== */
+.search-container {
+  width: 100%;
+  max-width: 1000px; /* Alineado con la tabla/grid */
+  margin: 0 auto 2rem auto;
+  box-sizing: border-box;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Icono de la lupa */
+.search-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 1.1rem;
+  color: #64748b; /* Gris apagado */
+  pointer-events: none;
+}
+
+/* El campo de entrada de texto */
+.search-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px; /* Espacio extra a la izquierda para la lupa */
+  background: rgba(17, 24, 39, 0.85) !important; /* Cristal oscuro */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #475569 !important; /* Borde gris azulado */
+  border-radius: 12px;
+  color: #ffffff !important; /* Texto de escritura en blanco puro */
+  font-size: 1rem;
+  font-weight: 600; /* Letras gruesas */
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Marcador de posición (Placeholder) */
+.search-input::placeholder {
+  color: #64748b !important;
+  font-weight: 500;
+}
+
+/* Al hacer clic en la barra de búsqueda */
+.search-input:focus {
+  outline: none;
+  border-color: #38bdf8 !important; /* Azul cyan brillante */
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+.header-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px; /* Alineado con el ancho de tu tabla */
+  margin: 0 auto 1.5rem 0;
+}
+
+/* Ajustamos el margen del h2 para que no descuadre la línea */
+.header-inline h2 {
+  margin: 0;
+  color: #ffffff !important;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ===================================================
+   BOTÓN "NUEVO JUGADOR" (ESTILO CYAN PREMIUM)
+   =================================================== */
+.btn-add-player {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #38bdf8 !important; /* Tu azul cyan brillante */
+  color: #0f172a !important; /* Texto oscuro para contraste ultra legible */
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700; /* Letras gruesas */
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+  transition: all 0.2s ease;
+  margin-left: auto;
+  white-space: nowrap !important;
+}
+
+.btn-add-player:hover {
+  background: #0ea5e9 !important; /* Un cyan un poco más oscuro al pasar el cursor */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+}
+
+.btn-add-player:active {
+  transform: translateY(0);
+}
